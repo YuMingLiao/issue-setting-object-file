@@ -3,11 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
--- | Settings are centralized, as much as possible, into this file. This
--- includes database connection settings, static file locations, etc.
--- In addition, you can configure a number of different aspects of Yesod
--- by overriding methods in the Yesod typeclass. That instance is
--- declared in the Foundation.hs file.
 module Settings where
 
 import ClassyPrelude.Yesod
@@ -21,7 +16,6 @@ import Network.Wai.Handler.Warp    (HostPreference)
 import Yesod.Default.Config2       (applyEnvValue, configSettingsYml)
 import Yesod.Default.Util          (WidgetFileSettings, widgetFileNoReload,
                                     widgetFileReload)
-import TH.RelativePaths            (pathRelativeToCabalPackage)
 -- | Runtime settings to configure this application. These settings can be
 -- loaded from various sources: defaults, environment variables, config files,
 -- theoretically even a database.
@@ -64,12 +58,12 @@ data AppSettings = AppSettings
 
 instance FromJSON AppSettings where
     parseJSON = withObject "AppSettings" $ \o -> do
-        let defaultDev =
-#ifdef DEVELOPMENT
-                True
-#else
-                False
-#endif
+        let defaultDev = False
+-- #ifdef DEVELOPMENT
+--                True
+-- #else
+--                False
+-- #endif
         appStaticDir              <- o .: "static-dir"
 --        appDatabaseConf           <- o .: "database"
         appRoot                   <- o .:? "approot"
@@ -116,8 +110,8 @@ widgetFile = (if appReloadTemplates compileTimeAppSettings
 
 -- | Raw bytes at compile time of @config/settings.yml@
 configSettingsYmlBS :: ByteString
---configSettingsYmlBS = $(embedFile configSettingsYml)
-configSettingsYmlBS = $(embedFile "settings.yml")
+configSettingsYmlBS = $(embedFile configSettingsYml)
+-- configSettingsYmlBS = $(makeRelativeToProject configSettingsYml >>= embedFile)
 
 -- | @config/settings.yml@, parsed to a @Value@.
 configSettingsYmlValue :: Value

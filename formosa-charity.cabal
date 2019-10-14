@@ -1,0 +1,218 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: fb8443f14c80efe58c5edca745fc5bf213cc223b3ecaab8fecbb9ce48683b019
+
+name:           formosa-charity
+version:        0.0.0
+build-type:     Simple
+data-files:
+  config/*
+  static/*
+  templates/*
+cabal-version:  >= 1.10
+  
+flag dev
+  description: Turn on development settings, like auto-reload templates.
+  manual: False
+  default: False
+
+flag library-only
+  description: Build for use with "yesod devel"
+  manual: False
+  default: False
+
+library
+  exposed-modules:
+      Settings
+      Settings.StaticFiles
+  other-modules:
+      Paths_formosa_charity
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson >=0.6 
+    , base >=4.8.2.0 && <4.9 || >=4.9.1.0 && <5
+    , bytestring >=0.9 && <0.11
+    , case-insensitive
+    , classy-prelude >=1.4
+-- && <1.5
+    , classy-prelude-conduit >=1.4 
+-- && <1.5
+    , classy-prelude-yesod >=1.4 
+-- && <1.5
+    , conduit >=1.0 && <2.0
+    , containers
+    , data-default
+    , directory >=1.1 && <1.4
+    , fast-logger >=2.2 && <2.5
+    , file-embed
+    , foreign-store
+    , hjsmin >=0.1 && <0.3
+    , http-client-tls >=0.3 && <0.4
+    , http-conduit >=2.3 && <2.4
+    , monad-control >=0.3 && <1.1
+    , monad-logger >=0.3 && <0.4
+--    , persistent >=2.8 && <2.9
+--    , persistent-sqlite >=2.8 && <2.9
+--    , persistent-template >=2.5 && <2.9
+    , safe
+    , shakespeare >=2.0 && <2.1
+    , template-haskell
+    , text >=0.11 && <2.0
+    , time
+    , unordered-containers
+    , vector
+    , wai
+    , wai-extra >=3.0 && <3.1
+    , wai-logger >=2.2 && <2.4
+    , warp >=3.0 && <3.3
+    , warp-tls >=3.2 && <3.3
+    , yaml >=0.8 
+    , yesod >=1.6 && <1.7
+    , yesod-auth >=1.6 && <1.7
+    , yesod-core >=1.6 && <1.7
+    , yesod-form >=1.6 && <1.7
+    , yesod-static >=1.6 && <1.7
+--    , persistent-project-m36
+    , project-m36 >= 0.6
+    , yesod-auth
+    , rio
+    , project-m36-typed
+--    , uuid
+    , basic-sop
+    , generics-sop
+    , binary
+    , deepseq
+    , QuickCheck
+    , yesod-project-m36
+    , yesod-auth-fb
+    , yesod-auth-oauth2
+    , yesod-fb
+    , fb
+    , blaze-builder
+    , blaze-markup
+    , blaze-html
+    , directory 
+    , yesod-crud
+    , mtl
+    , lucid
+    , yesod-lucid
+    , lucid-extras
+if (flag(dev)) || (flag(library-only))
+    ghc-options: -Wall -fwarn-tabs -O0
+    cpp-options: -DDEVELOPMENT
+  else
+    ghc-options: -Wall -fwarn-tabs -O2 -fprint-potential-instances +RTS -I0:q
+
+  default-language: Haskell2010
+
+executable formosa-charity
+  main-is: main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -O0
+  build-depends:
+      aeson >=0.6 
+    , base >=4.8.2.0 && <4.9 || >=4.9.1.0 && <5
+    , bytestring >=0.9 && <0.11
+    , case-insensitive
+    , classy-prelude >=1.4 
+    , classy-prelude-conduit >=1.4 
+    , classy-prelude-yesod >=1.4 
+    , conduit >=1.0 && <2.0
+    , containers
+    , data-default
+    , directory >=1.1 && <1.4
+    , fast-logger >=2.2 && <2.5
+    , file-embed
+    , foreign-store
+    , formosa-charity
+    , hjsmin >=0.1 && <0.3
+    , http-client-tls >=0.3 && <0.4
+    , http-conduit >=2.3 && <2.4
+    , monad-control >=0.3 && <1.1
+    , monad-logger >=0.3 && <0.4
+--    , persistent >=2.8 && <2.9
+--    , persistent-sqlite >=2.8 && <2.9
+--    , persistent-template >=2.5 && <2.9
+    , safe
+    , shakespeare >=2.0 && <2.1
+    , template-haskell
+    , text >=0.11 && <2.0
+    , time
+    , unordered-containers
+    , vector
+    , wai
+    , wai-extra >=3.0 && <3.1
+    , wai-logger >=2.2 && <2.4
+    , warp >=3.0 && <3.3
+    , yaml >=0.8 
+    , yesod >=1.6 && <1.7
+    , yesod-auth >=1.6 && <1.7
+    , yesod-core >=1.6 && <1.7
+    , yesod-form >=1.6 && <1.7
+    , yesod-static >=1.6 && <1.7
+--  if flag(library-only)
+--    buildable: False
+  default-language: Haskell2010
+
+--test-suite formosa-charity-test
+--  type: exitcode-stdio-1.0
+--  main-is: Spec.hs
+--  other-modules:
+--      Handler.CommentSpec
+--      Handler.CommonSpec
+--      Handler.HomeSpec
+--      Handler.ProfileSpec
+--      TestImport
+--      Paths_formosa_charity
+--  hs-source-dirs:
+--      test
+--  ghc-options: -Wall
+--  build-depends:
+--      aeson >=0.6 && <1.4
+--    , base >=4.8.2.0 && <4.9 || >=4.9.1.0 && <5
+--    , bytestring >=0.9 && <0.11
+--    , case-insensitive
+--    , classy-prelude >=1.4 && <1.5
+--    , classy-prelude-conduit >=1.4 && <1.5
+--    , classy-prelude-yesod >=1.4 && <1.5
+--    , conduit >=1.0 && <2.0
+--    , containers
+--    , data-default
+--    , directory >=1.1 && <1.4
+--    , fast-logger >=2.2 && <2.5
+--    , file-embed
+--    , foreign-store
+--    , formosa-charity
+--    , hjsmin >=0.1 && <0.3
+--    , hspec >=2.0.0
+--    , http-client-tls >=0.3 && <0.4
+--    , http-conduit >=2.3 && <2.4
+--    , microlens
+--    , monad-control >=0.3 && <1.1
+--    , monad-logger >=0.3 && <0.4
+--    , persistent >=2.8 && <2.9
+--    , persistent-sqlite >=2.8 && <2.9
+--    , persistent-template >=2.5 && <2.9
+--    , safe
+--    , shakespeare >=2.0 && <2.1
+--    , template-haskell
+--    , text >=0.11 && <2.0
+--    , time
+--    , unordered-containers
+--    , vector
+--    , wai
+--    , wai-extra >=3.0 && <3.1
+--    , wai-logger >=2.2 && <2.4
+--    , warp >=3.0 && <3.3
+--    , yaml >=0.8 && <0.9
+--    , yesod >=1.6 && <1.7
+--    , yesod-auth >=1.6 && <1.7
+--    , yesod-core >=1.6 && <1.7
+--    , yesod-form >=1.6 && <1.7
+--    , yesod-static >=1.6 && <1.7
+--    , yesod-test
+--  default-language: Haskell2010
