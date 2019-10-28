@@ -4,18 +4,10 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, aeson, base, basic-sop, binary, blaze-builder
-      , blaze-html, blaze-markup, bytestring, case-insensitive
-      , classy-prelude, classy-prelude-conduit, classy-prelude-yesod
-      , conduit, containers, data-default, deepseq, directory
-      , fast-logger, fb, file-embed, foreign-store, generics-sop, hjsmin
-      , http-client-tls, http-conduit, lucid, lucid-extras, monad-control
-      , monad-logger, mtl, project-m36, project-m36-typed, QuickCheck
-      , rio, safe, shakespeare, stdenv, template-haskell, text, time
-      , unordered-containers, vector, wai, wai-extra, wai-logger, warp
-      , warp-tls, yaml, yesod, yesod-auth, yesod-auth-fb
-      , yesod-auth-oauth2, yesod-core, yesod-crud, yesod-fb, yesod-form
-      , yesod-lucid, yesod-project-m36, yesod-static
+  f = { mkDerivation, aeson, base, bytestring, classy-prelude
+      , classy-prelude-yesod, file-embed, shakespeare, stdenv
+      , template-haskell, text, wai, wai-extra, wai-logger, warp
+      , warp-tls, yaml, yesod, yesod-core, yesod-static
       }:
       mkDerivation {
         pname = "formosa-charity";
@@ -23,27 +15,16 @@ let
         src = ./.;
         isLibrary = true;
         isExecutable = true;
+        enableSeparateDataOutput = true;
         libraryHaskellDepends = [
-          aeson base basic-sop binary blaze-builder blaze-html blaze-markup
-          bytestring case-insensitive classy-prelude classy-prelude-conduit
-          classy-prelude-yesod conduit containers data-default deepseq
-          directory fast-logger fb file-embed foreign-store generics-sop
-          hjsmin http-client-tls http-conduit lucid lucid-extras
-          monad-control monad-logger mtl project-m36 project-m36-typed
-          QuickCheck rio safe shakespeare template-haskell text time
-          unordered-containers vector wai wai-extra wai-logger warp warp-tls
-          yaml yesod yesod-auth yesod-auth-fb yesod-auth-oauth2 yesod-core
-          yesod-crud yesod-fb yesod-form yesod-lucid yesod-project-m36
-          yesod-static 
+          aeson base bytestring classy-prelude classy-prelude-yesod
+          file-embed template-haskell text wai wai-extra wai-logger warp
+          warp-tls yaml yesod yesod-core yesod-static
         ];
         executableHaskellDepends = [
-          aeson base bytestring case-insensitive classy-prelude
-          classy-prelude-conduit classy-prelude-yesod conduit containers
-          data-default directory fast-logger file-embed foreign-store hjsmin
-          http-client-tls http-conduit monad-control monad-logger safe
-          shakespeare template-haskell text time unordered-containers vector
-          wai wai-extra wai-logger warp yaml yesod yesod-auth yesod-core
-          yesod-form yesod-static
+          aeson base bytestring classy-prelude classy-prelude-yesod
+          file-embed shakespeare template-haskell text wai wai-extra
+          wai-logger warp yaml yesod yesod-core yesod-static
         ];
         license = stdenv.lib.licenses.unfree;
         hydraPlatforms = stdenv.lib.platforms.none;

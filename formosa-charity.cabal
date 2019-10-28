@@ -35,35 +35,34 @@ library
       aeson >=0.6 
     , base >=4.8.2.0 && <4.9 || >=4.9.1.0 && <5
     , bytestring >=0.9 && <0.11
-    , case-insensitive
     , classy-prelude >=1.4
 -- && <1.5
-    , classy-prelude-conduit >=1.4 
+--    , classy-prelude-conduit >=1.4 
 -- && <1.5
     , classy-prelude-yesod >=1.4 
 -- && <1.5
-    , conduit >=1.0 && <2.0
-    , containers
-    , data-default
-    , directory >=1.1 && <1.4
-    , fast-logger >=2.2 && <2.5
+--    , conduit >=1.0 && <2.0
+--    , containers
+--    , data-default
+--    , directory >=1.1 && <1.4
+--    , fast-logger >=2.2 && <2.5
     , file-embed
-    , foreign-store
-    , hjsmin >=0.1 && <0.3
-    , http-client-tls >=0.3 && <0.4
-    , http-conduit >=2.3 && <2.4
-    , monad-control >=0.3 && <1.1
-    , monad-logger >=0.3 && <0.4
+--    , foreign-store
+--    , hjsmin >=0.1 && <0.3
+--    , http-client-tls >=0.3 && <0.4
+--    , http-conduit >=2.3 && <2.4
+--    , monad-control >=0.3 && <1.1
+--    , monad-logger >=0.3 && <0.4
 --    , persistent >=2.8 && <2.9
 --    , persistent-sqlite >=2.8 && <2.9
 --    , persistent-template >=2.5 && <2.9
-    , safe
-    , shakespeare >=2.0 && <2.1
+--    , safe
+--    , shakespeare >=2.0 && <2.1
     , template-haskell
     , text >=0.11 && <2.0
-    , time
-    , unordered-containers
-    , vector
+--    , time
+--    , unordered-containers
+--    , vector
     , wai
     , wai-extra >=3.0 && <3.1
     , wai-logger >=2.2 && <2.4
@@ -71,35 +70,35 @@ library
     , warp-tls >=3.2 && <3.3
     , yaml >=0.8 
     , yesod >=1.6 && <1.7
-    , yesod-auth >=1.6 && <1.7
+--    , yesod-auth >=1.6 && <1.7
     , yesod-core >=1.6 && <1.7
-    , yesod-form >=1.6 && <1.7
+--    , yesod-form >=1.6 && <1.7
     , yesod-static >=1.6 && <1.7
 --    , persistent-project-m36
-    , project-m36 >= 0.6
-    , yesod-auth
-    , rio
-    , project-m36-typed
+--    , project-m36 >= 0.6
+--    , yesod-auth
+--    , rio
+--    , project-m36-typed
 --    , uuid
-    , basic-sop
-    , generics-sop
-    , binary
-    , deepseq
-    , QuickCheck
-    , yesod-project-m36
-    , yesod-auth-fb
-    , yesod-auth-oauth2
-    , yesod-fb
-    , fb
-    , blaze-builder
-    , blaze-markup
-    , blaze-html
-    , directory 
-    , yesod-crud
-    , mtl
-    , lucid
-    , yesod-lucid
-    , lucid-extras
+--    , basic-sop
+--    , generics-sop
+--    , binary
+--    , deepseq
+--    , QuickCheck
+--    , yesod-project-m36
+--    , yesod-auth-fb
+--    , yesod-auth-oauth2
+--    , yesod-fb
+--    , fb
+--    , blaze-builder
+--    , blaze-markup
+--    , blaze-html
+--    , directory 
+--    , yesod-crud
+--    , mtl
+--    , lucid
+--    , yesod-lucid
+--    , lucid-extras
 if (flag(dev)) || (flag(library-only))
     ghc-options: -Wall -fwarn-tabs -O0
     cpp-options: -DDEVELOPMENT
@@ -117,42 +116,42 @@ executable formosa-charity
       aeson >=0.6 
     , base >=4.8.2.0 && <4.9 || >=4.9.1.0 && <5
     , bytestring >=0.9 && <0.11
-    , case-insensitive
+--    , case-insensitive
     , classy-prelude >=1.4 
-    , classy-prelude-conduit >=1.4 
+--    , classy-prelude-conduit >=1.4 
     , classy-prelude-yesod >=1.4 
-    , conduit >=1.0 && <2.0
-    , containers
-    , data-default
-    , directory >=1.1 && <1.4
-    , fast-logger >=2.2 && <2.5
+--    , conduit >=1.0 && <2.0
+--    , containers
+--    , data-default
+--    , directory >=1.1 && <1.4
+--    , fast-logger >=2.2 && <2.5
     , file-embed
-    , foreign-store
+--    , foreign-store
     , formosa-charity
-    , hjsmin >=0.1 && <0.3
-    , http-client-tls >=0.3 && <0.4
-    , http-conduit >=2.3 && <2.4
-    , monad-control >=0.3 && <1.1
-    , monad-logger >=0.3 && <0.4
+--    , hjsmin >=0.1 && <0.3
+--    , http-client-tls >=0.3 && <0.4
+--    , http-conduit >=2.3 && <2.4
+--    , monad-control >=0.3 && <1.1
+--    , monad-logger >=0.3 && <0.4
 --    , persistent >=2.8 && <2.9
 --    , persistent-sqlite >=2.8 && <2.9
 --    , persistent-template >=2.5 && <2.9
-    , safe
+--    , safe
     , shakespeare >=2.0 && <2.1
     , template-haskell
     , text >=0.11 && <2.0
-    , time
-    , unordered-containers
-    , vector
+--    , time
+--    , unordered-containers
+--    , vector
     , wai
     , wai-extra >=3.0 && <3.1
     , wai-logger >=2.2 && <2.4
     , warp >=3.0 && <3.3
     , yaml >=0.8 
     , yesod >=1.6 && <1.7
-    , yesod-auth >=1.6 && <1.7
+--    , yesod-auth >=1.6 && <1.7
     , yesod-core >=1.6 && <1.7
-    , yesod-form >=1.6 && <1.7
+--    , yesod-form >=1.6 && <1.7
     , yesod-static >=1.6 && <1.7
 --  if flag(library-only)
 --    buildable: False

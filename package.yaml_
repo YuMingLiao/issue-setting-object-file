@@ -1,0 +1,38 @@
+name: issue-TH
+dependencies:
+- base
+- file-embed
+- text
+- yaml
+- yesod
+- yesod-core
+- yesod-form
+- yesod-static
+- classy-prelude
+- classy-prelude-yesod
+
+library:
+  source-dirs: ./src
+
+executable:
+  main: main.hs
+  source-dirs: ./app
+  dependencies:
+  - base
+  - file-embed
+  - text
+  - yaml
+  - yesod
+  - yesod-core
+  - yesod-form
+  - yesod-static
+  - classy-prelude
+  - classy-prelude-yesod
+
+default-extensions:
+  - OverloadedStrings
+  - TemplateHaskell
+
+
+extra-directories:
+- ./.
